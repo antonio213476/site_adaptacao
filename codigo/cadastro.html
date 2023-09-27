@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Pokemon Site</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img class="img-fluid border-0 rounded-0" src="../imagens/pokemon.png" alt="" class="">
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link fs-5 me-3" aria-current="page" href="../index.html">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-5 me-3" href="galeria.html">GALERIA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active fs-5 me-3" href="#">CONTA</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+ 
+      
+      <script>
+        function cadastrar() {
+          var email = document.getElementById('Email')
+          var senha = document.getElementById('Senha')
+          var nome = document.getElementById('Nome')
+          var textoErro = document.getElementById('textoErro')
+          
+          console.log('Iniciando cadastro')
+  
+          if(email.value === '') {
+            console.warn('ERRO: E-mail não presente')
+            textoErro.textContent = 'ERRO: E-mail não presente'
+            return
+          }
+          if(senha.value === '') {
+            console.warn('ERRO: Senha não presente')
+            textoErro.textContent = 'ERRO: Senha não presente'
+            return
+          }
+          if(nome.value === '') {
+            console.warn('ERRO: Nome não presente')
+            textoErro.textContent = 'ERRO: Nome não presente'
+            return
+          }
+          localStorage.setItem("senha", senha.value);
+          localStorage.setItem("email", email.value); 
+          localStorage.setItem("nome", nome.value); 
+          textoErro.textContent = ''
+          location.href = "conta.html";
+  
+          console.log('Cadastro feito com sucesso')
+        }
+    </script>
+      <div class="d-flex justify-content-center flex-column align-items-center text-center bg-secondary-subtle">
+        <p 
+                class="card-title fs-1 fw-bold" 
+                >
+                CADASTRE-SE
+              </p>  
+              <input 
+                  type="email" 
+                  class="form-control w-50 mt-3 mb-3" 
+                  id="Nome" 
+                  placeholder="Nome de usuário"
+              >
+              <input 
+                  type="email" 
+                  class="form-control w-50 mb-3" 
+                  id="Email" 
+                  placeholder="exemplo@email.com"
+              >
+              <input 
+                  type="password" 
+                  class="form-control w-50 mb-3" 
+                  id="Senha" 
+                  placeholder="Senha"
+              > 
+              <p id="textoErro" class="text-danger fw-bold"></p>
+              <button 
+                type="button" 
+                class="
+                  btn text-white
+                  w-25 border-4 border-primary
+                  rounded bg-primary
+                  fw-bold btn mb-5" 
+                onclick="cadastrar()"
+                >
+                  CONCLUIR
+              </button>
+      </div>
+      
+
+
+    
+    <nav class="navbar bottom navbar-expand-sm navbar-dark" style="background-color: #21386E;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img class="img-fluid" src="../imagens/PokemonEnd.png" alt="" class="">
+            </a>
+            <ul class="navbar-nav ms-auto me-5">
+              <li class="nav-item">
+                <img class="img-fluid" src="../imagens/Instagram.png" alt="" class="">
+              </li>
+              <li class="nav-item">
+                <img class="img-fluid" src="../imagens/TikTok.png" alt="" class="">
+              </li>
+              <li class="nav-item">
+                <img class="img-fluid" src="../imagens/WhatsApp.png" alt="" class="">
+              </li>
+            </ul>
+          </div>
+      </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+   
+
+
+  </body>
+</html>

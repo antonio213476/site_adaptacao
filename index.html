@@ -26,14 +26,14 @@
                 <a class="nav-link fs-5 me-3" href="codigo/galeria.html">GALERIA</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-5 me-3" onclick="conta()">CONTA</a>
+                <a class="nav-link fs-5 me-3" href="codigo/conta.html">CONTA</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
- 
+      
         <div class="card text-bg-dark border-0 rounded-0">
             <img src="imagens/temosQuePegar.png" class="card-img" alt=".">
             <div class="card-img-overlay img-fluid d-inline-flex flex-column justify-content-center">
@@ -77,10 +77,6 @@
           <a href="codigo/galeria.html" class="fs-5 fw-medium mt-3 me-5 d-flex flex-row-reverse"> VEJA MAIS </a>
     </div>
     <script>
-        function popUpCadastrar(){
-          
-        }
-
         function cadastrar() {
           var email = document.getElementById('Email')
           var senha = document.getElementById('Senha')
@@ -154,7 +150,7 @@
         }
     </script>
 
-    <div id="cadastroMobile" class="bg-primary">
+    <div id="cadastroMobile" class="text-center" style="background-color: #306CB4;">
       <p 
         class="fs-1 fw-bold text-center text-white" 
        >
@@ -162,23 +158,23 @@
       </p>
       <input 
           type="email" 
-          class="form-control w-50 mt-3 text-center" 
+          class="form-control w-50 mt-3 text-center mx-auto col-10 col-md-8 col-lg-6" 
           id="NomeMobile" 
           placeholder="Nome de usuário"
         >
         <input 
           type="email" 
-          class="form-control w-50 mt-3 text-center" 
+          class="form-control w-50 mt-3 text-center mx-auto col-10 col-md-8 col-lg-6" 
           id="EmailMobile" 
           placeholder="exemplo@email.com"
         >
         <input 
           type="password" 
-          class="form-control w-50 mt-3 mb-3 text-center" 
+          class="form-control w-50 mt-3 mb-3 text-center mx-auto col-10 col-md-8 col-lg-6" 
           id="SenhaMobile" 
           placeholder="Senha"
         >
-        <p id="textoErroMobile" class="text-danger fw-bold"></p>
+        <p id="textoErroMobile" class="text-danger fw-bold text-center"></p>
         <button 
             type="button" 
             class="
@@ -186,7 +182,6 @@
                 w-25 border-4 border-warning-subtle 
                 rounded text-white 
                 fw-bold btn mb-3" 
-            style="text-align: center !important"
             onclick="cadastrarMobile()"
             >
             CONCLUIR
@@ -203,7 +198,7 @@
             </p>  
             <input 
                 type="email" 
-                class="form-control w-75 mt-3 mb-3 text-center text-center " 
+                class="form-control w-75 mt-3 mb-3" 
                 id="Nome" 
                 placeholder="Nome de usuário"
             >

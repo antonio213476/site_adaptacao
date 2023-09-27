@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Pokemon Site</title>
 </head>
 <body>
@@ -49,23 +48,23 @@
         </div>
 
         <div class="mt-5 mb-3 border border-1 rounded-1 ms-3 me-3">
-          <h1 class="mt-2 fs-1 fw-bold"> Informações Básicas </h1> 
-          <h1 class="mt-2 mb-4 fs-6 fw-light"> Algumas informações podem estar vísiveis a outros.   </h1>
+          <h1 class="mt-2 ms-3 fs-1 fw-bold"> Informações Básicas </h1> 
+          <h1 class="mt-2 ms-3 mb-4 fs-6 fw-light"> Algumas informações podem estar vísiveis a outros.   </h1>
           
           <hr class="m-0 ms-3 me-3">
           <div class="d-flex justify-content-start ms-3 me-3">
             <div class="fs-5 p-2 flex-grow-1">Nome:</div>
-            <div id="nome" class="fs-5 fw-light p-2">Antonio</div>
+            <div id="nome" class="fs-5 fw-light p-2">Não Informado</div>
           </div>  
           <hr class="m-0 ms-3 me-3">
           <div class="d-flex justify-content-start ms-3 me-3">
             <div class="fs-5 p-2 flex-grow-1">Data de aniversário:</div>
-            <div class="fs-5 fw-light p-2">04/06/2000</div>
+            <div id='dataAniv' class="fs-5 fw-light p-2">Não Informado</div>
           </div> 
           <hr class="m-0 ms-3 me-3">
           <div class="d-flex justify-content-start ms-3 me-3">
             <div class="fs-5 p-2 flex-grow-1">Gênero:</div>
-            <div class="fs-5 fw-light p-2">Indefinido</div>
+            <div id='genero' class="fs-5 fw-light p-2">Não Informado</div>
           </div> 
           <hr class="m-0 ms-3 me-3">
           <div class="d-flex justify-content-start ms-3 me-3">
@@ -75,41 +74,29 @@
         </div>
         
         <div class="mb-5 border border-1 rounded-1 ms-3 me-3">
-          <h1 class="mt-2 fs-1 fw-bold"> Contato </h1> 
-          <h1 class="mt-2 mb-4 fs-6 fw-light"> Suas informações de contato   </h1>
+          <h1 class="mt-2 ms-3 fs-1 fw-bold"> Contato </h1> 
+          <h1 class="mt-2 ms-3 mb-4 fs-6 fw-light"> Suas informações de contato   </h1>
           
           <hr class="m-0 ms-3 me-3">
           <div class="d-flex justify-content-start ms-3 me-3">
             <div class="fs-5 p-2 flex-grow-1">Email:</div>
-            <div id="email" class="fs-5 fw-light p-2">meuemail@gmail.com</div>
+            <div id="email" class="fs-5 fw-light p-2">Não Informado</div>
           </div>  
           <hr class="m-0 ms-3 me-3">
           <div class="d-flex justify-content-start ms-3 me-3">
             <div class="fs-5 p-2 flex-grow-1">Telefone:</div>
-            <div class="fs-5 fw-light p-2">11 1234-5678</div>
+            <div id='telefone' class="fs-5 fw-light p-2" contenteditable="true">Não Informado</div>
           </div>  
         </div>
 
         <script>
           let elementoSenha;
-          let senha = 'minhaSenha123';
-          let email = 'meuemail@gmail.com';
-          let nome = 'Nome';
-          if(localStorage.getItem("nome")) {
-            nome = localStorage.getItem("nome") 
-            console.log('Nome foi achado com sucesso! Nome atual: '+nome)
-            document.getElementById('nome').textContent = nome
-          }
-          if(localStorage.getItem("email")) {
-            email = localStorage.getItem("email") 
-            console.log('E-mail foi achado com sucesso! E-mail atual: '+email)
-            document.getElementById('email').textContent = email
-          }
-          if(localStorage.getItem("senha")) {
-            senha = localStorage.getItem("senha") 
-            console.log('Senha foi achada com sucesso! Senha atual: '+senha)
-          }
-          
+          let senha = localStorage.getItem("senha");
+          let email = localStorage.getItem("email");
+          let nome = localStorage.getItem("nome");
+        
+          document.getElementById('nome').textContent = nome
+          document.getElementById('email').textContent = nome
 
 
           function togglepassword(){
@@ -121,6 +108,7 @@
             } 
             elementoSenha.textContent = senha
           }
+
         </script>
 
 

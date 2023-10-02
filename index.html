@@ -43,7 +43,7 @@
                     descobrindo essa incrível franquia, este site é o
                     lugar perfeito para você.
                 </p>  
-                <button type="button" class="btn btn-primary ms-4 w-25 btn-sm" onclick="window.scrollTo(0, document.body.scrollHeight);">
+                <button id="botaoCadastrar" type="button" class="btn btn-primary ms-4 w-25 btn-sm" onclick="location.href ='codigo/cadastro.html'">
                     CADASTRAR
                 </button>
             </div>
@@ -148,6 +148,14 @@
           }
           window.scrollTo(0, document.body.scrollHeight)
         }
+
+        function esconderCadastros() {
+          if(localStorage.getItem("senha")){
+          document.getElementById("botaoCadastrar").style = "display: none"
+        }
+        }
+        
+        esconderCadastros()
     </script>
 
     <div id="cadastroMobile" class="text-center" style="background-color: #306CB4;">

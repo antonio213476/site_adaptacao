@@ -77,14 +77,21 @@
           <a href="codigo/galeria.html" class="fs-5 fw-medium mt-3 me-5 d-flex flex-row-reverse"> VEJA MAIS </a>
     </div>
     <script>
-        function cadastrar() {
-          var email = document.getElementById('Email')
-          var senha = document.getElementById('Senha')
-          var nome = document.getElementById('Nome')
-          var textoErro = document.getElementById('textoErro')
-          
-          console.log('Iniciando cadastro')
+        function validarEmail(string) {
+          return String(string)
+            .toLowerCase()
+            .match(
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        }
+        function validarSenha(string) {
+          return String(string)
+            .match(
+              /.{8,}/
+            ); 
+        }
 
+        function cadastrar(email,senha,nome,textoErro){
           if(email.value === '') {
             console.warn('ERRO: E-mail não presente')
             textoErro.textContent = 'ERRO: E-mail não presente'
@@ -100,45 +107,45 @@
             textoErro.textContent = 'ERRO: Nome não presente'
             return
           }
-          localStorage.setItem("senha", senha.value);
-          localStorage.setItem("email", email.value); 
-          localStorage.setItem("nome", nome.value); 
-          textoErro.textContent = ''
-          location.href = "codigo/conta.html";
+          if(validarEmail(email.value)) {
+            if(validarSenha(senha.value)) {
+              localStorage.setItem("senha", senha.value);
+              localStorage.setItem("email", email.value); 
+              localStorage.setItem("nome", nome.value); 
+              textoErro.textContent = ''
+              location.href = "codigo/conta.html";
 
-          console.log('Cadastro feito com sucesso')
+              console.log('Cadastro feito com sucesso')
+              return
+            }
+            console.warn('Senha incompleta')
+            textoErro.textContent = 'ERRO: A senha deve conter 8 characteres.'
+            return
+          } 
+          console.warn('E-mail invalido')
+          textoErro.textContent = 'ERRO: E-mail invalido'
+          return
+        }
+
+
+        function cadastroDesktop() {
+          let email = document.getElementById('Email')
+          let senha = document.getElementById('Senha')
+          let nome = document.getElementById('Nome')
+          let textoErro = document.getElementById('textoErro')
+          
+          console.log('Iniciando cadastro')
+          cadastrar(email,senha,nome,textoErro)
         }
 
         function cadastrarMobile() {
-          var email = document.getElementById('EmailMobile')
-          var senha = document.getElementById('SenhaMobile')
-          var nome = document.getElementById('NomeMobile')
-          var textoErro = document.getElementById('textoErroMobile')
+          let emailM = document.getElementById('EmailMobile')
+          let senhaM = document.getElementById('SenhaMobile')
+          let nomeM = document.getElementById('NomeMobile')
+          let textoErroM = document.getElementById('textoErroMobile')
 
           console.log('Iniciando cadastro')
-
-          if(email.value === '') {
-            console.warn('ERRO: E-mail não presente')
-            textoErro.textContent = 'ERRO: E-mail não presente'
-            return
-          }
-          if(senha.value === '') {
-            console.warn('ERRO: Senha não presente')
-            textoErro.textContent = 'ERRO: Senha não presente'
-            return
-          }
-          if(nome.value === '') {
-            console.warn('ERRO: Nome não presente')
-            textoErro.textContent = 'ERRO: Nome não presente'
-            return
-          }
-          localStorage.setItem("senha", senha.value);
-          localStorage.setItem("email", email.value); 
-          localStorage.setItem("nome", nome.value); 
-          textoErro.textContent = ''
-          location.href = "codigo/conta.html";
-
-          console.log('Cadastro feito com sucesso')
+          cadastrar(emailM,senhaM,nomeM,textoErroM)
         }
 
         function conta() {
@@ -230,7 +237,7 @@
                 w-25 border-4 border-warning-subtle 
                 rounded text-white 
                 fw-bold btn" 
-              onclick="cadastrar()"
+              onclick="cadastroDesktop()"
               >
                 CONCLUIR
             </button>

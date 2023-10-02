@@ -36,6 +36,11 @@
  
       
       <script>
+        function validarEmail(e_mail) {
+          const regex = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
+          return regex.test(e_mail)
+        }
+
         function cadastrar() {
           var email = document.getElementById('Email')
           var senha = document.getElementById('Senha')
@@ -43,7 +48,7 @@
           var textoErro = document.getElementById('textoErro')
           
           console.log('Iniciando cadastro')
-  
+
           if(email.value === '') {
             console.warn('ERRO: E-mail não presente')
             textoErro.textContent = 'ERRO: E-mail não presente'
@@ -59,13 +64,18 @@
             textoErro.textContent = 'ERRO: Nome não presente'
             return
           }
-          localStorage.setItem("senha", senha.value);
-          localStorage.setItem("email", email.value); 
-          localStorage.setItem("nome", nome.value); 
-          textoErro.textContent = ''
-          location.href = "conta.html";
-  
-          console.log('Cadastro feito com sucesso')
+          if(validarEmail(email.value)) {
+            localStorage.setItem("senha", senha.value);
+            localStorage.setItem("email", email.value); 
+            localStorage.setItem("nome", nome.value); 
+            textoErro.textContent = ''
+            location.href = "codigo/conta.html";
+
+            console.log('Cadastro feito com sucesso')
+            return
+          } 
+          console.warn('E-mail invalido')
+          textoErro.textContent = 'ERRO: E-mail invalido'
         }
     </script>
       <div class="d-flex justify-content-center flex-column align-items-center text-center bg-secondary-subtle" style="height: 45rem;">

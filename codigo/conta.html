@@ -90,6 +90,12 @@
 
         <script>
           let elementoSenha;
+
+          
+          if(localStorage.getItem("senha")===null){
+            document.location.href = "cadastro.html";
+          }
+          
           let senha = localStorage.getItem("senha");
           let email = localStorage.getItem("email");
           let nome = localStorage.getItem("nome");

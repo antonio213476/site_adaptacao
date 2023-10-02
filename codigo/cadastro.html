@@ -68,29 +68,32 @@
           console.log('Cadastro feito com sucesso')
         }
     </script>
-      <div class="d-flex justify-content-center flex-column align-items-center text-center bg-secondary-subtle">
+      <div class="d-flex justify-content-center flex-column align-items-center text-center bg-secondary-subtle" style="height: 45rem;">
         <p 
-                class="card-title fs-1 fw-bold" 
+                class="card-title fs-1 fw-bold mb-3" 
                 >
                 CADASTRE-SE
               </p>  
               <input 
                   type="email" 
-                  class="form-control w-50 mt-3 mb-3" 
+                  class="form-control mt-3 mb-3" 
                   id="Nome" 
                   placeholder="Nome de usuário"
+                  style="width: 40%"
               >
               <input 
                   type="email" 
-                  class="form-control w-50 mb-3" 
+                  class="form-control mb-3" 
                   id="Email" 
                   placeholder="exemplo@email.com"
+                  style="width: 40%"
               >
               <input 
                   type="password" 
-                  class="form-control w-50 mb-3" 
+                  class="form-control mb-3" 
                   id="Senha" 
                   placeholder="Senha"
+                  style="width: 40%"
               > 
               <p id="textoErro" class="text-danger fw-bold"></p>
               <button 
@@ -99,7 +102,7 @@
                   btn text-white
                   w-25 border-4 border-primary
                   rounded bg-primary
-                  fw-bold btn mb-5" 
+                  fw-bold btn mb-5 mt-3" 
                 onclick="cadastrar()"
                 >
                   CONCLUIR

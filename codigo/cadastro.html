@@ -36,12 +36,22 @@
  
       
       <script>
-        function validarEmail(e_mail) {
-          const regex = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
-          return regex.test(e_mail)
+
+        function validarEmail(string) {
+            return String(string)
+            .toLowerCase()
+            .match(
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        }
+        function validarSenha(string) {
+          return String(string)
+            .match(
+              /.{8,}/
+            ); 
         }
 
-        function cadastrar() {
+        function cadastrar(email,senha,nome,textoErro){
           var email = document.getElementById('Email')
           var senha = document.getElementById('Senha')
           var nome = document.getElementById('Nome')
@@ -65,17 +75,23 @@
             return
           }
           if(validarEmail(email.value)) {
-            localStorage.setItem("senha", senha.value);
-            localStorage.setItem("email", email.value); 
-            localStorage.setItem("nome", nome.value); 
-            textoErro.textContent = ''
-            location.href = "codigo/conta.html";
+            if(validarSenha(senha.value)) {
+              localStorage.setItem("senha", senha.value);
+              localStorage.setItem("email", email.value); 
+              localStorage.setItem("nome", nome.value); 
+              textoErro.textContent = ''
+              location.href = "conta.html";
 
-            console.log('Cadastro feito com sucesso')
+              console.log('Cadastro feito com sucesso')
+              return
+            }
+            console.warn('Senha incompleta')
+            textoErro.textContent = 'ERRO: A senha deve conter 8 characteres.'
             return
           } 
           console.warn('E-mail invalido')
           textoErro.textContent = 'ERRO: E-mail invalido'
+          return
         }
     </script>
       <div class="d-flex justify-content-center flex-column align-items-center text-center bg-secondary-subtle" style="height: 45rem;">
